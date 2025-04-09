@@ -1,0 +1,39 @@
+Hotspot: 
+ubiquityrobotC1B2
+pass: robotseverywhere
+
+ssh na plocicu:
+ssh ubuntu@10.42.0.1
+pass: ubuntu
+
+
+############################
+
+
+Na pločici:
+(roscore se automatski pokrene, i jos hrpa topica)
+
+rosrun taz_control speedController.py (speedControllerWd.py)
+# dobiva brzine na topic /taz_speed, postavlja ih na gpio
+
+
+
+
+
+
+## Na komp:
+### export ROS_IP=10.42.0.55                         #IP laptopa u hotspotu
+### export ROS_MASTER_URI=http://10.42.0.1:11311     #IP plocice
+^zamijenjeno s: 
+~catkin/src/taz/scripts$ source masterSetup.bash 
+
+rosrun taz watchdogOnPc.py
+# dobiva brzinu na /taz_set_speed, publisha na /taz_speed
+
+
+
+
+
+#########################
+gpioTest -> test za pinove
+watchdogOnRasp -> test za watchdog
